@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:4.0
+N:Test;Test2
+FN:Test
+EMAIL;type=INTERNET;type=pref:Test@gmail.com
+TEL;type=VOICE:1234
+ADR;type=WORK:;;Test;Test;;123123;Test
+ADR;type=WORK:;;Test;Test;;123123;Test
+BDAY:NOVEMBER
+END:VCARD
+

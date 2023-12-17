@@ -1,0 +1,2 @@
+ID = 0 "Audio von Tester aus 2023 Spieldauer: 500 sek.
+ID = 1 "Bild aufgenommen im Jahr 2024 in Dortmund

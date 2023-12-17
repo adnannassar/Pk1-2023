@@ -1,0 +1,2 @@
+Name: OBERMEIER
+Gehalt: 10000.0
