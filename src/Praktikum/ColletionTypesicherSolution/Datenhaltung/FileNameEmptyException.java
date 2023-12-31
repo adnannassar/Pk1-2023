@@ -1,4 +1,4 @@
-package Praktikum.ColletionTypesicherSolution;
+package Praktikum.ColletionTypesicherSolution.Datenhaltung;
 
 public class FileNameEmptyException extends Exception {
     public FileNameEmptyException() {

@@ -1,12 +1,20 @@
-package Praktikum.ColletionTypesicherSolution;
+package Praktikum.ColletionTypesicherSolution.Fachlogik;
+
+import Praktikum.ColletionTypesicherSolution.Datenhaltung.Medium;
+import Praktikum.ColletionTypesicherSolution.Datenhaltung.PersistenzException;
 
 import java.io.*;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Medienverwaltung {
     private LinkedList<Medium> mediums;
+    private Controller controller = new Controller(mediums);
+
+
+
 
     public Medienverwaltung() {
         try {
@@ -89,21 +97,19 @@ public class Medienverwaltung {
         return summe / count;
     }
 
-    public void speichern() {
-        try (ObjectOutputStream ost = new ObjectOutputStream(new FileOutputStream("Exmaple_For_IO/MedienVerwaltungIO/MedienList.ser"))) {
-            ost.writeObject(mediums);
-            System.out.println("Medien List wurde erfolgreich gespeichert!");
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+    public void speichern()  {
+        try {
+            controller.speichern(mediums);
+        } catch (PersistenzException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public void laden() throws IOException {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Exmaple_For_IO/MedienVerwaltungIO/MedienList.ser"))) {
-            mediums = (LinkedList<Medium>) ois.readObject();
-            System.out.println("Medien List wurde erfolgreich geladen!");
-        } catch (IOException | ClassNotFoundException e) {
-            throw new IOException("Es gibt keine gespeicherte Liste!");
+    public void  laden() throws IOException {
+        try {
+        mediums = (LinkedList<Medium>) controller.laden();
+        } catch (PersistenzException e) {
+            throw new RuntimeException(e);
         }
     }
 }

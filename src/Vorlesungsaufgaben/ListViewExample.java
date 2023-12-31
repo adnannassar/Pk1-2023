@@ -1,59 +1,39 @@
-package JavaFx;
+package Vorlesungsaufgaben;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 
 
-public class TestJavaFx extends Application {
+public class ListViewExample extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        BorderPane borderPane = new BorderPane();
-        Button halloBtn = new Button("Hallo");
-        halloBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("Hallo World!");
-            }
-        });
-
-
-
-
-        borderPane.setCenter(halloBtn);
-        Scene scene = new Scene(borderPane, 500, 500);
-
-        stage.setScene(scene);
-
-        stage.setTitle("Demo Java FX App");
-        stage.show();
+        createListView(stage);
     }
 
-    void temp(Stage stage){
+    void createListView(Stage stage){
         GridPane gridPane = new GridPane();
 
         ListView<String> listView = new ListView<>();
+
         ObservableList<String> observableList =
                 FXCollections.observableArrayList();
         for (int i = 0; i < 20; i++) {
             observableList.add("This is item " + i);
         }
         listView.getItems().addAll(observableList);
-
 
         Label l1 = new Label("Label 1");
         Label l2 = new Label("Label 2");
@@ -76,8 +56,6 @@ public class TestJavaFx extends Application {
         gridPane.add(tf2, 2, 2);
         gridPane.add(start, 2, 4);
 
-
-        Rectangle rectangle = new Rectangle(10, 10);
 
 
         Scene scene = new Scene(gridPane, 500, 500);

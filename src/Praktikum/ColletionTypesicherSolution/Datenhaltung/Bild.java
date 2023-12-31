@@ -1,4 +1,4 @@
-package Praktikum.ColletionTypesicherSolution;
+package Praktikum.ColletionTypesicherSolution.Datenhaltung;
 
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -8,7 +8,8 @@ public class Bild extends Medium implements Serializable {
     private static final long serialVersionUID = 3L;
 
     private String ort;
-
+    public Bild() {
+    }
     public Bild(String title, int jahr, String ort) {
         super(title, jahr);
         this.ort = ort;

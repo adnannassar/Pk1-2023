@@ -1,4 +1,4 @@
-package Praktikum.ColletionTypesicherSolution;
+package Praktikum.ColletionTypesicherSolution.Datenhaltung;
 
 import java.io.OutputStream;
 import java.io.Serializable;
@@ -11,6 +11,9 @@ public abstract class Medium implements Comparable<Medium> , Serializable {
     private int jahr;
     private static int counter = 0;
 
+    public Medium() {
+        id = counter++;
+    }
 
     public Medium(String title, int jahr) {
         id = counter++;

@@ -1,4 +1,14 @@
-package Praktikum.ColletionTypesicherSolution;
+package Praktikum.ColletionTypesicherSolution.GUI;
+
+import Praktikum.ColletionTypesicherSolution.Datenhaltung.Audio;
+import Praktikum.ColletionTypesicherSolution.Datenhaltung.Bild;
+import Praktikum.ColletionTypesicherSolution.Fachlogik.Medienverwaltung;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
@@ -6,13 +16,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Menu {
+public class MedienVerwaltungFX extends Application {
 
     private Medienverwaltung mv;
 
     private Scanner scanner = new Scanner(System.in);
 
-    public Menu(Medienverwaltung mv) {
+    public MedienVerwaltungFX(Medienverwaltung mv) {
         this.mv = mv;
     }
 
@@ -154,5 +164,26 @@ public class Menu {
         mv.aufnehmen(a);
 
         JOptionPane.showMessageDialog(null, "Bild wurde erfolgreich hinzugefügt!", "Erfolgreich!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Button addAudio = new Button("Audio aufnehmen");
+        addAudio.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                AudioErfassungView audioErfassungView = new AudioErfassungView(stage, new Audio());
+                audioErfassungView.showAudioErfassungView();
+
+            }
+        });
+        Button exitBtn  = new Button("Exit");
+        exitBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Platform.exit();
+            }
+        });
+
     }
 }

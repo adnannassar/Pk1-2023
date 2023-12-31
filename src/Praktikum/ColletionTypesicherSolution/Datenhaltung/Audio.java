@@ -1,4 +1,4 @@
-package Praktikum.ColletionTypesicherSolution;
+package Praktikum.ColletionTypesicherSolution.Datenhaltung;
 
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -9,6 +9,9 @@ public class Audio extends Medium implements Serializable {
 
     private String interpret;
     private int dauer;
+
+    public Audio() {
+    }
 
     public Audio(String title, int jahr, String interpret, int dauer) {
         super(title, jahr);
