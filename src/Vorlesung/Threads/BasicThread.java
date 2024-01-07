@@ -31,11 +31,13 @@ public class BasicThread {
         try {
             // Main wartet auf Thread 1 (t1)
             t1.join();
-
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
         System.out.println("Main Thread");
+
+
+
     }
 }
