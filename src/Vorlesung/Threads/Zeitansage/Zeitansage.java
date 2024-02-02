@@ -2,7 +2,7 @@ package Vorlesung.Threads.Zeitansage;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.scene.layout.Pane;
+
 import javafx.stage.Stage;
 
 public class Zeitansage extends Application implements TimerListener {
@@ -17,7 +17,7 @@ public class Zeitansage extends Application implements TimerListener {
     public void start(Stage stage) throws Exception {
         Thread t1 = new Thread(new Timer(this, 1000));
         t1.start();
-        MessageView.create(stage, "Message", "Zeitansage stoopen!").showView();
+       // MessageView.create(stage, "Message", "Zeitansage stoopen!").showView();
         t1.interrupt();
         Platform.exit();
     }
